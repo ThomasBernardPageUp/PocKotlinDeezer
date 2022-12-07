@@ -34,6 +34,7 @@
             android:inputType="textPassword" />
 
         <Button
+            android:enabled="false"
             android:id="@+id/loginButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -42,13 +43,8 @@
         <TextView
             android:id="@+id/registerTextView"
             android:textColor="@color/primary"
-            android:text="Create a new account"
+            android:text="@string/create_new_account"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"/>
-    </LinearLayout
->
-
-
-
-
+    </LinearLayout>
 </LinearLayout>

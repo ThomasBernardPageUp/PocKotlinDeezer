@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import androidx.core.widget.addTextChangedListener
 import androidx.navigation.fragment.findNavController
 import com.example.deezer.R
 import com.example.deezer.databinding.FragmentLoginBinding
@@ -40,6 +41,9 @@ class LoginFragment : Fragment() {
         loginButton = this.view?.findViewById(R.id.loginButton)
         registerTextView = this.view?.findViewById(R.id.registerTextView)
 
+        usernameEditText?.addTextChangedListener{ checkFormValidity() }
+        passwordEditText?.addTextChangedListener{ checkFormValidity() }
+
         loginButton?.setOnClickListener{
             val username = usernameEditText?.text.toString()
             val password = passwordEditText?.text.toString()
@@ -51,6 +55,10 @@ class LoginFragment : Fragment() {
 
 
         super.onViewCreated(view, savedInstanceState)
+    }
+
+    fun checkFormValidity(){
+        loginButton?.isEnabled = usernameEditText?.text?.toString()!!.isNotEmpty() && passwordEditText?.text?.toString()!!.isNotEmpty()
     }
 
 
