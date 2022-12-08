@@ -27,6 +27,11 @@ class HomeFragment : Fragment() {
         super.onActivityCreated(savedInstanceState)
         viewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         // TODO: Use the ViewModel
+
+        viewModel.searchArtist("Damso", {
+            var x = it
+        })
+
     }
 
 }
