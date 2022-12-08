@@ -66,6 +66,8 @@ class RegisterFragment : Fragment() {
                 firstnameEditText?.text.toString(),
                 lastnameEditText?.text.toString(),
                 passwordEditText?.text.toString())
+
+            findNavController().navigate(R.id.action_RegisterFragment_to_LoginFragment)
         }
 
 
@@ -86,5 +88,4 @@ class RegisterFragment : Fragment() {
                 && lastnameEditText?.text.toString().isNotEmpty()
                 && passwordEditText?.text.toString() == confirmPasswordEditText?.text.toString()
     }
-
 }
