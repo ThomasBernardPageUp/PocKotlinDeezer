@@ -59,6 +59,16 @@ class RegisterFragment : Fragment() {
         passwordEditText?.addTextChangedListener { checkFormValidity() }
         confirmPasswordEditText?.addTextChangedListener { checkFormValidity() }
 
+
+        registerButton?.setOnClickListener{
+            viewModel.register(
+                usernameEditText?.text.toString(),
+                firstnameEditText?.text.toString(),
+                lastnameEditText?.text.toString(),
+                passwordEditText?.text.toString())
+        }
+
+
         super.onViewCreated(view, savedInstanceState)
     }
 

@@ -9,6 +9,8 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
+import android.widget.Toast
+import androidx.core.text.set
 import androidx.core.widget.addTextChangedListener
 import androidx.navigation.fragment.findNavController
 import com.example.deezer.R
@@ -47,6 +49,15 @@ class LoginFragment : Fragment() {
         loginButton?.setOnClickListener{
             val username = usernameEditText?.text.toString()
             val password = passwordEditText?.text.toString()
+
+            viewModel.login(username, password){
+                if (it != null){
+                    Toast.makeText(this.context, "Sucess", Toast.LENGTH_SHORT).show()
+                }
+                else{
+                    Toast.makeText(this.context, "Error", Toast.LENGTH_SHORT).show()
+                }
+            }
         }
 
         registerTextView?.setOnClickListener{
