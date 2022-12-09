@@ -9,9 +9,14 @@
         android:orientation="vertical">
 
     <SearchView
-            android:layout_marginTop="60dp"
+            android:layout_marginTop="50dp"
             android:id="@+id/homeSearchView"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"/>
+    <ListView
+            android:id="@+id/artistsListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
 
 </LinearLayout>

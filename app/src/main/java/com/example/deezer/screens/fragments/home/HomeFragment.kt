@@ -6,12 +6,17 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ListView
 import android.widget.SearchView
 import com.example.deezer.R
+import com.example.deezer.screens.adapters.ArtistAdapter
 
 class HomeFragment : Fragment() {
 
     var searchView : SearchView? = null
+    var artistsListView : ListView? = null
+
+    val currentContext  by lazy { this.context  }
 
     companion object {
         fun newInstance() = HomeFragment()
@@ -36,12 +41,15 @@ class HomeFragment : Fragment() {
 
 
         searchView = this.view?.findViewById(R.id.homeSearchView)
+        artistsListView = this.view?.findViewById(R.id.artistsListView)
+
 
         searchView?.setOnQueryTextListener(object : SearchView.OnQueryTextListener {
 
             override fun onQueryTextSubmit(p0: String?): Boolean {
                 viewModel.searchArtist(p0 ?: "", {
-                    var x = it
+                    val artistAdapter = ArtistAdapter(currentContext!!, it!!)
+                    artistsListView?.adapter = artistAdapter
                 })
 
                 return true
